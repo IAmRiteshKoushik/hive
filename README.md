@@ -3,7 +3,7 @@
 Hive is a powerful YouTube content analysis toolbox that empowers creators 
 to deeply understand their audience and optimize videos for maximum impact. 
 We provide in-depth analytics, insights, demographics, collaboration support,
-video scheduling and lots more. Help your channel grow with Hive!
+video scheduling and lots more. Help your channel grow with Hive :zap:
 
 
 ## :zap: Sprint Planning for Hive
@@ -103,7 +103,7 @@ video scheduling and lots more. Help your channel grow with Hive!
 | Roll-number | Name     | Role       |
 | ----------- | -------- | ---------- |
 | CB.EN.U4CSE22001 | [Abishek E](https://github.com/Abishekmoorthy) | Developer and Tester |
-| CB.EN.U4CSE22049 | [Sudarshan Vanamali](https://github.com/Astrasv) | Scrum Master |
+| CB.EN.U4CSE22049 | [Sudharsan Vanamali](https://github.com/Astrasv) | Scrum Master and Developer |
 | CB.EN.U4CSE22063 | [Samyuktha J](https://github.com/samyuktha2005) | Developer |
 | CB.EN.U4CSE22059 | [Sreya Naradasu](https://github.com/Sreya205) | Developer |
 | CB.EN.U4CSE22046 | [Sudarsan G](https://github.com/sudarsan0201) | Tester |
