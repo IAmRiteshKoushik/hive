@@ -1,7 +1,12 @@
-# Hive : 
+# Hive : YouTube Analysis Toolkit
+
+Hive is a powerful YouTube content analysis toolbox that empowers creators 
+to deeply understand their audience and optimize videos for maximum impact. 
+We provide in-depth analytics, insights, demographics, collaboration support,
+video scheduling and lots more. Help your channel grow with Hive!
 
 
-## :zap: Sprint Planning for YouTube Analysis Project
+## :zap: Sprint Planning for Hive
 
 > [!NOTE]
 > Project Duration: 45 days  
