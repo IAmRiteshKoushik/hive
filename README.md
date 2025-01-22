@@ -5,6 +5,11 @@ to deeply understand their audience and optimize videos for maximum impact.
 We provide in-depth analytics, insights, demographics, collaboration support,
 video scheduling and lots more. Help your channel grow with Hive :zap:
 
+## Technical Stack
+**Front-End :** [TypeScript], [React], [TailwindCSS], [D3.js]
+**Back-End :** [Go]
+**API :** [YouTube API]
+**Database :** [PostgreSQL]
 
 ## :zap: Sprint Planning for Hive
 
