@@ -3,7 +3,7 @@
 
 ## :zap: Sprint Planning for YouTube Analysis Project
 
-> [!INFO]
+> [!NOTE]
 > Project Duration: 45 days  
 > Total Sprints: 3 (Each sprint is 15 days)
 
@@ -14,7 +14,7 @@
 - Implement User Authentication & Authorization
 - Set up Video Data Retrieval system
 
-**:construction: Tasks**
+**:building_construction: Tasks**
 
 **1. User Authentication & Authorization:**
 - Design user authentication flow (3 days)
@@ -40,7 +40,7 @@
 - Develop Data Visualization components
 - Implement User Notifications system
 
-**:construction: Tasks**
+**:building_construction: Tasks**
 
 **1. Data Visualization:**
 - Design visualization templates (3 days)
@@ -66,7 +66,7 @@
 - Develop Admin Dashboard
 - Implement Video Category Performance Analysis
 
-**:construction: Tasks**
+**:building_construction: Tasks**
 
 **1. Admin Dashboard:**
 - Design admin interface and functionalities (3 days)
@@ -86,14 +86,14 @@
 - Final testing, bug fixes, and deployment (4 days).
 - Project wrap-up and final documentation (1 day).
 - 
-### Communication Tools:
+### :loud_sound: Communication Tools:
 - Primary Communication: Microsoft Teams
 - Collaboration: Github Project Board (Kanban and Timeline)
 - Task Management: Jira 
 - Documentation: Vitepress Static Docs
 - Version Control: Git and GitHub 
 
-# Role Assignment:
+# :memo: Role Assignment:
 
 | Roll-number | Name     | Role       |
 | ----------- | -------- | ---------- |
