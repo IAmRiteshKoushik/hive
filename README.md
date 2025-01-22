@@ -2,6 +2,7 @@
 
 
 ## :zap: Sprint Planning for YouTube Analysis Project
+
 > [!INFO]
 > Project Duration: 45 days  
 > Total Sprints: 3 (Each sprint is 15 days)
@@ -9,7 +10,7 @@
 ### Sprint 1 :rocket: Foundation Setup and Core Functionality
 **Timeline:** Day 1 - Day 15
 
-**:target: Goals**
+**:pushpin: Goals**
 - Implement User Authentication & Authorization
 - Set up Video Data Retrieval system
 
@@ -35,7 +36,7 @@
 ### Sprint 2 :rocket: Advanced Functionality and Visualization
 **Timeline:** Day 16 - Day 30
 
-**:target: Goals**
+**:pushpin: Goals**
 - Develop Data Visualization components
 - Implement User Notifications system
 
@@ -61,7 +62,7 @@
 ### Sprint 3 :rocket: Admin Features and Final Enhancements
 **Timeline:** Day 31 - Day 45
 
-**:target: Goals**
+**:pushpin: Goals**
 - Develop Admin Dashboard
 - Implement Video Category Performance Analysis
 
@@ -92,13 +93,13 @@
 - Documentation: Vitepress Static Docs
 - Version Control: Git and GitHub 
 
-# Role Assignment
+# Role Assignment:
 
 | Roll-number | Name     | Role       |
 | ----------- | -------- | ---------- |
 | CB.EN.U4CSE22001 | [Abishek E](https://github.com/Abishekmoorthy) | Developer and Tester |
 | CB.EN.U4CSE22049 | [Sudarshan Vanamali](https://github.com/Astrasv) | Scrum Master |
 | CB.EN.U4CSE22063 | [Samyuktha J](https://github.com/samyuktha2005) | Developer |
-| CB.EN.U4CSE22038 | [Sreya Naradasu](https://github.com/Sreya205) | Developer |
+| CB.EN.U4CSE22059 | [Sreya Naradasu](https://github.com/Sreya205) | Developer |
 | CB.EN.U4CSE22046 | [Sudarsan G](https://github.com/sudarsan0201) | Tester |
 | CB.EN.U4CSE22038 | [Ritesh Koushik](https://github.com/IAmRiteshKoushik) | Developer and Tester |
