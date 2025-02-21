@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String            @id @default(cuid())
+  username        String            @unique
+  password        String
+  email           String
+  createdAt       DateTime
+  updatedAt       DateTime
+  Channels        Channel[]
+  UserChannelRole UserChannelRole[]
+}
+
+model Channel {
+  id              String   @id
+  name            String
+  description     String
+  pfp             String
+  country         String
+  publishedAt     DateTime
+  userId          String
+  subscriberCount Int
+  videoCount      Int
+  viewCount       Int
+
+  user            User              @relation(fields: [userId], references: [id])
+  UserChannelRole UserChannelRole[]
+  Video           Video[]
+  Playlist        Playlist[]
+}
+
+model UserChannelRole {
+  id        Int    @id @default(autoincrement())
+  userId    String
+  channelId String
+  role      String
+
+  user    User    @relation(fields: [userId], references: [id])
+  channel Channel @relation(fields: [channelId], references: [id])
+}
+
+model Video {
+  id           String   @id
+  title        String
+  publishedAt  DateTime
+  description  String?
+  channelId    String
+  tags         String[]
+  duration     String
+  definition   String
+  blocked      String[]
+  commentCount Int
+  likeCount    Int
+  topicDetails String[]
+
+  channel Channel @relation(fields: [channelId], references: [id])
+
+  // Tags, topics and description would be useful for categorical analysis
+  VideoPlaylist VideoPlaylist[]
+}
+
+model Playlist {
+  id            String          @id
+  channelId     String
+  publishedAt   DateTime
+  title         String
+  description   String
+  VideoPlaylist VideoPlaylist[]
+
+  channel Channel @relation(fields: [channelId], references: [id])
+}
+
+model VideoPlaylist {
+  id         Int    @id @default(autoincrement())
+  videoId    String
+  playlistId String
+
+  video    Video    @relation(fields: [videoId], references: [id])
+  playlist Playlist @relation(fields: [playlistId], references: [id])
+}
