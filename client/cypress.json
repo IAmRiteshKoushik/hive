@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:5173",
+  "videosFolder": "cypress/videos",
+  "screenshotsFolder": "cypress/screenshots",
+  "supportFile": "cypress/support/index.ts",
+  "pluginsFile": "cypress/plugins/index.ts"
+}
