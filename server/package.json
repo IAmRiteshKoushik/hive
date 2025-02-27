@@ -2,8 +2,20 @@
   "name": "server",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tsx src/app.ts",
-    "build": "npx tsc -b"
+    "dev": "nodemon",
+    "build": "npx tsc -b",
+    "format": "biome format --write ./",
+    "prepare": "cd .. && husky server/.husky || true"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --files-ignore-unknown=true",
+      "biome check --write --no-errors-on-unmatched",
+      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
+      "biome check --write --unsafe --no-errors-on-unmatched",
+      "biome format --write --no-errors-on-unmatched",
+      "biome lint --write --no-errors-on-unmatched"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -15,12 +27,16 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
+    "@types/nodemailer": "^6.4.17",
     "@types/otp-generator": "^4.0.2",
     "chalk": "^5.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
+    "husky": "^9.1.7",
+    "nodemailer": "^6.10.0",
+    "nodemon": "^3.1.9",
     "otp-generator": "^4.0.1",
     "paseto": "^3.1.4",
     "pino": "^9.6.0",
@@ -29,5 +45,8 @@
     "tsx": "^4.19.3",
     "typescript": "^5.7.3",
     "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
   }
 }
