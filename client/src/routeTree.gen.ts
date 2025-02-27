@@ -10,123 +10,292 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
-import { Route as RegisterIndexImport } from './routes/register/index'
-import { Route as LoginIndexImport } from './routes/login/index'
-import { Route as DashboardIndexImport } from './routes/dashboard/index'
+import { Route as rootRoute } from "./routes/__root";
+import { Route as IndexImport } from "./routes/index";
+import { Route as RegisterIndexImport } from "./routes/register/index";
+import { Route as LoginIndexImport } from "./routes/login/index";
+import { Route as ForgotPasswordIndexImport } from "./routes/forgot-password/index";
+import { Route as DashboardIndexImport } from "./routes/dashboard/index";
+import { Route as RegisterOtpIndexImport } from "./routes/register/otp/index";
+import { Route as DashboardTeamIndexImport } from "./routes/dashboard/team/index";
+import { Route as DashboardSettingsIndexImport } from "./routes/dashboard/settings/index";
+import { Route as DashboardTeamInviteImport } from "./routes/dashboard/team/invite";
+import { Route as DashboardChannelChannelIdIndexImport } from "./routes/dashboard/channel/$channelId/index";
+import { Route as DashboardChannelChannelIdVideoImport } from "./routes/dashboard/channel/$channelId/video";
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/",
+	path: "/",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const RegisterIndexRoute = RegisterIndexImport.update({
-  id: '/register/',
-  path: '/register/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/register/",
+	path: "/register/",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const LoginIndexRoute = LoginIndexImport.update({
-  id: '/login/',
-  path: '/login/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/login/",
+	path: "/login/",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const ForgotPasswordIndexRoute = ForgotPasswordIndexImport.update({
+	id: "/forgot-password/",
+	path: "/forgot-password/",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const DashboardIndexRoute = DashboardIndexImport.update({
-  id: '/dashboard/',
-  path: '/dashboard/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/dashboard/",
+	path: "/dashboard/",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const RegisterOtpIndexRoute = RegisterOtpIndexImport.update({
+	id: "/register/otp/",
+	path: "/register/otp/",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const DashboardTeamIndexRoute = DashboardTeamIndexImport.update({
+	id: "/dashboard/team/",
+	path: "/dashboard/team/",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const DashboardSettingsIndexRoute = DashboardSettingsIndexImport.update({
+	id: "/dashboard/settings/",
+	path: "/dashboard/settings/",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const DashboardTeamInviteRoute = DashboardTeamInviteImport.update({
+	id: "/dashboard/team/invite",
+	path: "/dashboard/team/invite",
+	getParentRoute: () => rootRoute,
+} as any);
+
+const DashboardChannelChannelIdIndexRoute =
+	DashboardChannelChannelIdIndexImport.update({
+		id: "/dashboard/channel/$channelId/",
+		path: "/dashboard/channel/$channelId/",
+		getParentRoute: () => rootRoute,
+	} as any);
+
+const DashboardChannelChannelIdVideoRoute =
+	DashboardChannelChannelIdVideoImport.update({
+		id: "/dashboard/channel/$channelId/video",
+		path: "/dashboard/channel/$channelId/video",
+		getParentRoute: () => rootRoute,
+	} as any);
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/login/': {
-      id: '/login/'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/register/': {
-      id: '/register/'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterIndexImport
-      parentRoute: typeof rootRoute
-    }
-  }
+declare module "@tanstack/react-router" {
+	interface FileRoutesByPath {
+		"/": {
+			id: "/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof IndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/dashboard/": {
+			id: "/dashboard/";
+			path: "/dashboard";
+			fullPath: "/dashboard";
+			preLoaderRoute: typeof DashboardIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/forgot-password/": {
+			id: "/forgot-password/";
+			path: "/forgot-password";
+			fullPath: "/forgot-password";
+			preLoaderRoute: typeof ForgotPasswordIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/login/": {
+			id: "/login/";
+			path: "/login";
+			fullPath: "/login";
+			preLoaderRoute: typeof LoginIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/register/": {
+			id: "/register/";
+			path: "/register";
+			fullPath: "/register";
+			preLoaderRoute: typeof RegisterIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/dashboard/team/invite": {
+			id: "/dashboard/team/invite";
+			path: "/dashboard/team/invite";
+			fullPath: "/dashboard/team/invite";
+			preLoaderRoute: typeof DashboardTeamInviteImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/dashboard/settings/": {
+			id: "/dashboard/settings/";
+			path: "/dashboard/settings";
+			fullPath: "/dashboard/settings";
+			preLoaderRoute: typeof DashboardSettingsIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/dashboard/team/": {
+			id: "/dashboard/team/";
+			path: "/dashboard/team";
+			fullPath: "/dashboard/team";
+			preLoaderRoute: typeof DashboardTeamIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/register/otp/": {
+			id: "/register/otp/";
+			path: "/register/otp";
+			fullPath: "/register/otp";
+			preLoaderRoute: typeof RegisterOtpIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/dashboard/channel/$channelId/video": {
+			id: "/dashboard/channel/$channelId/video";
+			path: "/dashboard/channel/$channelId/video";
+			fullPath: "/dashboard/channel/$channelId/video";
+			preLoaderRoute: typeof DashboardChannelChannelIdVideoImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/dashboard/channel/$channelId/": {
+			id: "/dashboard/channel/$channelId/";
+			path: "/dashboard/channel/$channelId";
+			fullPath: "/dashboard/channel/$channelId";
+			preLoaderRoute: typeof DashboardChannelChannelIdIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+	}
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/login': typeof LoginIndexRoute
-  '/register': typeof RegisterIndexRoute
+	"/": typeof IndexRoute;
+	"/dashboard": typeof DashboardIndexRoute;
+	"/forgot-password": typeof ForgotPasswordIndexRoute;
+	"/login": typeof LoginIndexRoute;
+	"/register": typeof RegisterIndexRoute;
+	"/dashboard/team/invite": typeof DashboardTeamInviteRoute;
+	"/dashboard/settings": typeof DashboardSettingsIndexRoute;
+	"/dashboard/team": typeof DashboardTeamIndexRoute;
+	"/register/otp": typeof RegisterOtpIndexRoute;
+	"/dashboard/channel/$channelId/video": typeof DashboardChannelChannelIdVideoRoute;
+	"/dashboard/channel/$channelId": typeof DashboardChannelChannelIdIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/login': typeof LoginIndexRoute
-  '/register': typeof RegisterIndexRoute
+	"/": typeof IndexRoute;
+	"/dashboard": typeof DashboardIndexRoute;
+	"/forgot-password": typeof ForgotPasswordIndexRoute;
+	"/login": typeof LoginIndexRoute;
+	"/register": typeof RegisterIndexRoute;
+	"/dashboard/team/invite": typeof DashboardTeamInviteRoute;
+	"/dashboard/settings": typeof DashboardSettingsIndexRoute;
+	"/dashboard/team": typeof DashboardTeamIndexRoute;
+	"/register/otp": typeof RegisterOtpIndexRoute;
+	"/dashboard/channel/$channelId/video": typeof DashboardChannelChannelIdVideoRoute;
+	"/dashboard/channel/$channelId": typeof DashboardChannelChannelIdIndexRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/dashboard/': typeof DashboardIndexRoute
-  '/login/': typeof LoginIndexRoute
-  '/register/': typeof RegisterIndexRoute
+	__root__: typeof rootRoute;
+	"/": typeof IndexRoute;
+	"/dashboard/": typeof DashboardIndexRoute;
+	"/forgot-password/": typeof ForgotPasswordIndexRoute;
+	"/login/": typeof LoginIndexRoute;
+	"/register/": typeof RegisterIndexRoute;
+	"/dashboard/team/invite": typeof DashboardTeamInviteRoute;
+	"/dashboard/settings/": typeof DashboardSettingsIndexRoute;
+	"/dashboard/team/": typeof DashboardTeamIndexRoute;
+	"/register/otp/": typeof RegisterOtpIndexRoute;
+	"/dashboard/channel/$channelId/video": typeof DashboardChannelChannelIdVideoRoute;
+	"/dashboard/channel/$channelId/": typeof DashboardChannelChannelIdIndexRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/login' | '/register'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/login' | '/register'
-  id: '__root__' | '/' | '/dashboard/' | '/login/' | '/register/'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths:
+		| "/"
+		| "/dashboard"
+		| "/forgot-password"
+		| "/login"
+		| "/register"
+		| "/dashboard/team/invite"
+		| "/dashboard/settings"
+		| "/dashboard/team"
+		| "/register/otp"
+		| "/dashboard/channel/$channelId/video"
+		| "/dashboard/channel/$channelId";
+	fileRoutesByTo: FileRoutesByTo;
+	to:
+		| "/"
+		| "/dashboard"
+		| "/forgot-password"
+		| "/login"
+		| "/register"
+		| "/dashboard/team/invite"
+		| "/dashboard/settings"
+		| "/dashboard/team"
+		| "/register/otp"
+		| "/dashboard/channel/$channelId/video"
+		| "/dashboard/channel/$channelId";
+	id:
+		| "__root__"
+		| "/"
+		| "/dashboard/"
+		| "/forgot-password/"
+		| "/login/"
+		| "/register/"
+		| "/dashboard/team/invite"
+		| "/dashboard/settings/"
+		| "/dashboard/team/"
+		| "/register/otp/"
+		| "/dashboard/channel/$channelId/video"
+		| "/dashboard/channel/$channelId/";
+	fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  DashboardIndexRoute: typeof DashboardIndexRoute
-  LoginIndexRoute: typeof LoginIndexRoute
-  RegisterIndexRoute: typeof RegisterIndexRoute
+	IndexRoute: typeof IndexRoute;
+	DashboardIndexRoute: typeof DashboardIndexRoute;
+	ForgotPasswordIndexRoute: typeof ForgotPasswordIndexRoute;
+	LoginIndexRoute: typeof LoginIndexRoute;
+	RegisterIndexRoute: typeof RegisterIndexRoute;
+	DashboardTeamInviteRoute: typeof DashboardTeamInviteRoute;
+	DashboardSettingsIndexRoute: typeof DashboardSettingsIndexRoute;
+	DashboardTeamIndexRoute: typeof DashboardTeamIndexRoute;
+	RegisterOtpIndexRoute: typeof RegisterOtpIndexRoute;
+	DashboardChannelChannelIdVideoRoute: typeof DashboardChannelChannelIdVideoRoute;
+	DashboardChannelChannelIdIndexRoute: typeof DashboardChannelChannelIdIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
-  LoginIndexRoute: LoginIndexRoute,
-  RegisterIndexRoute: RegisterIndexRoute,
-}
+	IndexRoute: IndexRoute,
+	DashboardIndexRoute: DashboardIndexRoute,
+	ForgotPasswordIndexRoute: ForgotPasswordIndexRoute,
+	LoginIndexRoute: LoginIndexRoute,
+	RegisterIndexRoute: RegisterIndexRoute,
+	DashboardTeamInviteRoute: DashboardTeamInviteRoute,
+	DashboardSettingsIndexRoute: DashboardSettingsIndexRoute,
+	DashboardTeamIndexRoute: DashboardTeamIndexRoute,
+	RegisterOtpIndexRoute: RegisterOtpIndexRoute,
+	DashboardChannelChannelIdVideoRoute: DashboardChannelChannelIdVideoRoute,
+	DashboardChannelChannelIdIndexRoute: DashboardChannelChannelIdIndexRoute,
+};
 
 export const routeTree = rootRoute
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+	._addFileChildren(rootRouteChildren)
+	._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {
@@ -136,8 +305,15 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/dashboard/",
+        "/forgot-password/",
         "/login/",
-        "/register/"
+        "/register/",
+        "/dashboard/team/invite",
+        "/dashboard/settings/",
+        "/dashboard/team/",
+        "/register/otp/",
+        "/dashboard/channel/$channelId/video",
+        "/dashboard/channel/$channelId/"
       ]
     },
     "/": {
@@ -146,11 +322,32 @@ export const routeTree = rootRoute
     "/dashboard/": {
       "filePath": "dashboard/index.tsx"
     },
+    "/forgot-password/": {
+      "filePath": "forgot-password/index.tsx"
+    },
     "/login/": {
       "filePath": "login/index.tsx"
     },
     "/register/": {
       "filePath": "register/index.tsx"
+    },
+    "/dashboard/team/invite": {
+      "filePath": "dashboard/team/invite.tsx"
+    },
+    "/dashboard/settings/": {
+      "filePath": "dashboard/settings/index.tsx"
+    },
+    "/dashboard/team/": {
+      "filePath": "dashboard/team/index.tsx"
+    },
+    "/register/otp/": {
+      "filePath": "register/otp/index.tsx"
+    },
+    "/dashboard/channel/$channelId/video": {
+      "filePath": "dashboard/channel/$channelId/video.tsx"
+    },
+    "/dashboard/channel/$channelId/": {
+      "filePath": "dashboard/channel/$channelId/index.tsx"
     }
   }
 }
