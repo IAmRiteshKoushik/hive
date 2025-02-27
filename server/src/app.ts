@@ -1,12 +1,7 @@
-import express, { Request, Response } from "express";
+import { InitServer } from "./server";
 
-const app = express()
+const app = new InitServer();
+app.setup();
+app.start();
 
-app.get("/test", (req: Request, res: Response) => {
-  res.status(200).json({
-    message: "Server is LIVE"
-  });
-  return;
-});
-
-app.listen(3000, () => console.log("Server is running"))
+export default app;
