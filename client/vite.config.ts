@@ -1,9 +1,15 @@
 import path from "path"
 import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    TanStackRouterVite({
+      target: 'react', autoCodeSplitting: true
+    })
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
