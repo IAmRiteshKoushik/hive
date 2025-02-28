@@ -1,0 +1,52 @@
+# NOTE: Dev environment configurations
+services:
+  postgres:
+    image: postgres:latest
+    container_name: hive_postgres
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: hive-base
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+    restart: on-failure
+
+  # dynamodb-local:
+  #   image: amazon/dynamodb-local:latest
+  #   container_name: dynamodb-local
+  #   ports:
+  #     - "8000:8000"
+
+  # dynamodb-admin:
+  #   image: aaronshaf/dynamodb-admin:4.6.1
+  #   ports:
+  #     - "8001:8001"
+  #   environment:
+  #     DYNAMO_ENDPOINT: "http://dynamodb:8000"
+  #     AWS_REGION: "eu-west-2"
+  #     AWS_ACCESS_KEY_ID: abc
+  #     AWS_SECRET_ACCESS_KEY: def
+  #   depends_on:
+  #     dynamodb:
+  #       condition: service_healthy
+
+#   prometheus:
+#     image: prom/prometheus:latest
+#     volumes:
+#       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+#     ports:
+#       - "9090:9090"
+#     networks:
+#       - monitoring
+#
+#   grafana:
+#     image: grafana/grafana:latest
+#     ports:
+#       - "3001:3000"
+#     networks:
+#       - monitoring
+#     environment:
+#       - GF_SECURITY_ADMIN_PASSWORD=admin
+#
+# networks:
+#   monitoring:
