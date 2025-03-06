@@ -6,8 +6,8 @@ We provide in-depth analytics, insights, demographics, collaboration support,
 video scheduling and lots more. Help your channel grow with Hive :zap:
 
 ## Technical Stack
-**Front-End :** [TypeScript](), [React](), [TailwindCSS](), [D3.js]()    
-**Back-End :** [Go]()    
+**Front-End :** [TypeScript](), [React](), [TailwindCSS](), [Chart.js]()    
+**Back-End :** [Node JS](),[Express JS]()    
 **API :** [YouTube API]()    
 **Database :** [PostgreSQL]()    
 
