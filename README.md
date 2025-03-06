@@ -7,7 +7,7 @@ video scheduling and lots more. Help your channel grow with Hive :zap:
 
 ## Technical Stack
 **Front-End :** [TypeScript](), [React](), [TailwindCSS](), [Chart.js]()    
-**Back-End :** [Node JS](),[Express JS]()    
+**Back-End :** [Node JS](),[Express JS ]()    
 **API :** [YouTube API]()    
 **Database :** [PostgreSQL]()    
 
