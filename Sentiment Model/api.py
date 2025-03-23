@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, validator
 from typing import List
 from sentiment_model import SentimentAnalyzer, Config
@@ -11,6 +12,15 @@ app = FastAPI(
     title="YouTube Comment Sentiment Analysis API",
     description="API to analyze sentiment and provide detailed insights on YouTube video comments",
     version="1.5.0"
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000","http://localhost:8080"],  # Allow React app origin
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],  # Allow necessary methods
+    allow_headers=["*"],  # Allow all headers (e.g., Content-Type)
 )
 
 analyzer = SentimentAnalyzer()

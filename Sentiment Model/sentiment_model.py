@@ -15,7 +15,7 @@ class Config:
     SUMMARY_MIN_LENGTH = 100
     SUMMARY_MAX_LENGTH = 200
     SUMMARY_PROMPT = (
-            "Summarize the emotions following YouTube comments in a detailed 100–200 word summary. "
+            "Summarize the following YouTube comments in a detailed 100–200 word summary. Covers all detail of the comments"
             "Do NOT repeat the comments content again"
         )
     KEYWORD_MIN_FREQ = 2  
@@ -59,24 +59,27 @@ class SentimentAnalyzer:
                    if count >= Config.KEYWORD_MIN_FREQ and len(word) > 3]
         return keywords[:5]  
 
-    def analyze_themes(self, comments: List[str], sentiments: List[str]) -> Dict[str, Dict[str, float]]:
+    def analyze_themes(self, comments: List[str], sentiments: List[str]) -> Dict[str, int]:
         keywords = self.extract_keywords(comments)
         theme_sentiments = {keyword: Counter() for keyword in keywords}
-        
+
         for comment, sentiment in zip(comments, sentiments):
             for keyword in keywords:
                 if keyword in comment.lower():
                     theme_sentiments[keyword][sentiment] += 1
-        
+
         result = {}
         for keyword, counts in theme_sentiments.items():
             total = sum(counts.values())
             if total > 0:
-                result[keyword] = {
-                    "positive": round((counts["positive"] / total) * 100, 2),
-                    "negative": round((counts["negative"] / total) * 100, 2),
-                    "neutral": round((counts["neutral"] / total) * 100, 2)
-                }
+                # Compute sentiment score (-1 to 1)
+                sentiment_score = (counts["positive"] - counts["negative"]) / total  
+
+                # Convert sentiment score to a 1-5 rating
+                rating = round(((sentiment_score + 1) / 2) * 4 + 1)  # Scale to 1-5
+                
+                result[keyword] = rating  # Store only the rating
+        
         return result
 
     def length_analysis(self, comments: List[str], sentiments: List[str]) -> Dict[str, float]:
@@ -121,7 +124,8 @@ class SentimentAnalyzer:
     def summarize(self, comments: List[str]) -> str:
         if not comments:
             return "No comments to summarize."
-        full_text = f"{Config.SUMMARY_PROMPT} {' '.join(comments)}"
+        # Join comments and truncate to avoid token limit issues
+        full_text = f"{Config.SUMMARY_PROMPT} {' '.join(comments)[:1000]}"  # Limit to 1000 characters
         if len(full_text.split()) < 50:
             return f"Comments are brief: {full_text[:Config.MAX_LENGTH]}..."
         try:
@@ -130,13 +134,17 @@ class SentimentAnalyzer:
                 max_length=Config.SUMMARY_MAX_LENGTH,
                 min_length=Config.SUMMARY_MIN_LENGTH,
                 do_sample=False,
-                truncation=True
+                truncation=True,
+                max_length_input=512  # Explicitly limit input tokens
             )[0]['summary_text']
             logger.debug(f"Generated summary: {summary}")
             return summary
         except Exception as e:
             logger.error(f"Summarization failed: {str(e)}")
-            return "Unable to generate summary due to processing error."
+            # Fallback to a simple summary if model fails
+            sentiment_counts = Counter([c.lower() for c in comments for word in ['good', 'bad', 'okay'] if word in c.lower()])
+            fallback = f"Comments show mixed emotions: {sentiment_counts.get('good', 0)} positive, {sentiment_counts.get('bad', 0)} negative, {sentiment_counts.get('okay', 0)} neutral mentions."
+            return fallback
 
     @lru_cache(maxsize=1000)
     def analyze_cached(self, comments_tuple: tuple) -> Dict[str, any]:

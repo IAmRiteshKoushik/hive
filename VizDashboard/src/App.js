@@ -487,6 +487,9 @@ function Header({ title, searchQuery, onSearch, onInputChange, loading, placehol
       <div className="header-content">
         <h1>{title}</h1>
         <nav>
+          <NavLink to="http://localhost:8080/youtube-analysis" className={({ isActive }) => (isActive ? 'active' : '')}> TRY OUR NEW AI </NavLink>
+        </nav>
+        <nav>
           <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
             Search by Keyword
           </NavLink>

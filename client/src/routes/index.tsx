@@ -33,7 +33,7 @@ function Index() {
             <a href="/login" className="text-sm font-medium hover:text-primary">
               Log in
             </a>
-            <Button>Get Started</Button>
+            <Button  onClick={() => (window.location.href = "http://localhost:3000/")}>Get Started</Button>
           </div>
         </div>
       </header>
@@ -284,7 +284,7 @@ function Index() {
                   </li>
                 </ul>
                 <div className="mt-6">
-                  <Button className="w-full">Get Started</Button>
+                  <Button className="w-full"  onClick={() => (window.location.href = "http://localhost:3000/")}>Get Started</Button>
                 </div>
               </div>
               <div className="rounded-xl border bg-background p-6 shadow-sm ring-2 ring-primary">
@@ -322,7 +322,7 @@ function Index() {
                   </li>
                 </ul>
                 <div className="mt-6">
-                  <Button className="w-full">Get Started</Button>
+                  <Button className="w-full" onClick={() => (window.location.href = "http://localhost:3000/")}>Get Started</Button>
                 </div>
               </div>
               <div className="rounded-xl border bg-background p-6 shadow-sm">
