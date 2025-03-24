@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/team/invite")({
+export const Route = createFileRoute("/forgot-password/")({
 	component: RouteComponent,
 });
 
 function RouteComponent() {
-	return <div>Hello "/dashboard/team/invite"!</div>;
+	return <div>Hello "/forgot-password/"!</div>;
 }
