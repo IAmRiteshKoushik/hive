@@ -382,3 +382,51 @@ nav a.active::after {
     grid-template-columns: 1fr;
   }
 }
+
+/* Add to the end of App.css */
+
+.sentiment-analysis {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.sentiment-analysis h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--primary-red);
+}
+
+.sentiment-details {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+}
+
+.sentiment-details p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.sentiment-details h3 {
+  margin: 1rem 0 0.5rem;
+  color: var(--text-secondary);
+}
+
+.sentiment-details ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.sentiment-details li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.sentiment-details li:before {
+  content: '• ';
+  color: var(--primary-red);
+}

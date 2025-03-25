@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, validator
 from typing import List
 from sentiment_model import SentimentAnalyzer, Config
@@ -9,8 +10,17 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="YouTube Comment Sentiment Analysis API",
-    description="API to analyze sentiment of YouTube video comments",
-    version="1.0.0"
+    description="API to analyze sentiment and provide detailed insights on YouTube video comments",
+    version="1.5.0"
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000","http://localhost:8080"],  # Allow React app origin
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],  # Allow necessary methods
+    allow_headers=["*"],  # Allow all headers (e.g., Content-Type)
 )
 
 analyzer = SentimentAnalyzer()
@@ -32,16 +42,19 @@ class CommentInput(BaseModel):
             }
         }
 
-@app.post("/analyze-sentiments/", response_model=dict)
+@app.post("/analyze-sentiments/", 
+    response_description="Returns sentiment percentages, summary, themes, length analysis, top comments, and suggestions",
+    response_model=dict
+)
 async def analyze_comments(comment_input: CommentInput):
-    """Analyze sentiment of YouTube comments."""
+    """Analyze sentiment and provide detailed insights on YouTube comments."""
     try:
         logger.info(f"Received request with {len(comment_input.comments)} comments")
         result = analyzer.analyze_cached(tuple(comment_input.comments))
         return result
     except ValueError as e:
         logger.warning(f"Invalid input: {str(e)}")
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
         logger.error(f"Processing failed: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal server error")
